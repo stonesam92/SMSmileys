@@ -1,3 +1,5 @@
+/* defines the unicode sequences for various emoji characters */
+
 #ifndef _Header_h
 #define _Header_h
 

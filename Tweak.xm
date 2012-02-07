@@ -1,10 +1,11 @@
 #import <Foundation/Foundation.h>
 #include "emojiConstants.h"
 
-%hook CKTranscriptBubbleData
+%hook CKSimpleBalloonView
  
-- (id)appendBubbleDataForMessage:(id)message 
+- (void)setText:(NSString *)text
 {
+    NSLog(text);
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
     static id asciiSmileys[20] = { 
@@ -31,6 +32,7 @@
     };
     
     static id emojiSmileys[12] = {
+        /* contains all the emoji characters (arranged in the same order as the ascii array) defined in emojiConstants.h  */
         smileyface, 
         sadface, 
         oface, 
@@ -44,24 +46,30 @@
         thumbsup, 
         thumbsdown 
     };
+
     int i = 0;
-    NSString *text = [message valueForKey:@"text"];
     NSRange range= {0, [text length]};
     
     
     for (i=0; i<20; i++) {
+        /* does a search-and-replace for all strings in the smileys arrays */
         text = [text stringByReplacingOccurrencesOfString:asciiSmileys[i]
                                                              withString:emojiSmileys[i % 12]
                                                                 options:NSCaseInsensitiveSearch
                                                                   range:range];
         range.length = [text length];
+        NSLog(@"text is now %@", text);
     }
-    [message setValue:[text retain] forKey:@"text"];
-    NSLog(@"ABAmessage was : %@", message);
-
-    [pool drain];
-    return %orig;
+    
+    %orig(text);
+    %orig(text);
 }
 
 
 %end
+
+/*
+
+ [CKSimpleBalloonView setText:] is the other place to insert the hooks, that will also work for imessages
+ 
+*/
