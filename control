@@ -1,7 +1,7 @@
 Package: com.samstone.smsmileys
 Name: SMSmileys
 Depends: mobilesubstrate
-Version: 0.8
+Version: 1.0
 Architecture: iphoneos-arm
 Description: Brings smileys to the default Messages app!
 Maintainer: Sam Stone
