@@ -1,52 +1,14 @@
 #import <Foundation/Foundation.h>
-#include "emojiConstants.h"
 #include <CoreGraphics/CGGeometry.h>
+#include "emojiConstants.h"
 
 %hook CKSimpleBalloonView
  
-static const id asciiSmileys[20] = { 
-    @":)", 
-    @":(", 
-    @":o", 
-    @";)", 
-    @":'(", 
-    @":D", 
-    @":p", 
-    @":s", 
-    @"<3", 
-    @"</3", 
-    @"(Y)", 
-    @"(N)", 
-    @":-)", 
-    @":-(", 
-    @":-o", 
-    @";-)", 
-    @":'-(", 
-    @":-D", 
-    @":-p", 
-    @":-s" 
-};
-
-static const id emojiSmileys[12] = {
-    /* contains all the emoji characters (arranged in the same order as the ascii array) defined in emojiConstants.h  */
-    smileyface, 
-    sadface, 
-    oface, 
-    winkeyface, 
-    cryingface, 
-    dface,
-    pface, 
-    sface, 
-    heart, 
-    brokenheart,
-    thumbsup, 
-    thumbsdown 
-};
-
+static const id asciiSmileys[20] = ASCIISMILEYS; 
+static const id emojiSmileys[12] = EMOJISMILEYS; 
 
 - (void)setText:(NSString *)text
 {
-    //NSLog(text);
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
     int i = 0;
@@ -62,7 +24,7 @@ static const id emojiSmileys[12] = {
         range.length = [text length];
     }
     
-    %orig; %orig;
+    %orig; %orig; //not sure why this is necessary, but it is :/
     
     [pool drain];
 }

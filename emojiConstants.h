@@ -1,7 +1,7 @@
 /* defines the unicode sequences for various emoji characters */
 
-#ifndef _Header_h
-#define _Header_h
+#ifndef emoji
+#define emoji
 
 #define smileyface  @"\ue056"
 #define dface       @"\ue057"
@@ -15,5 +15,44 @@
 #define brokenheart @"\ue023"
 #define thumbsup    @"\ue00e"
 #define thumbsdown  @"\ue421"
+
+#define ASCIISMILEYS { \
+    @":)", \
+    @":(", \
+    @":o", \
+    @";)", \
+    @":'(", \
+    @":D", \
+    @":p", \
+    @":s", \
+    @"<3", \
+    @"</3", \
+    @"(Y)", \
+    @"(N)", \
+    @":-)", \
+    @":-(", \
+    @":-o", \
+    @";-)", \
+    @":'-(", \
+    @":-D", \
+    @":-p", \
+    @":-s" \
+}
+
+#define EMOJISMILEYS { \
+    smileyface, \
+    sadface, \
+    oface, \
+    winkeyface, \
+    cryingface, \
+    dface, \
+    pface, \
+    sface, \
+    heart, \
+    brokenheart, \
+    thumbsup, \
+    thumbsdown \
+};
+
 
 #endif
