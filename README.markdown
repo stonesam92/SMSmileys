@@ -5,4 +5,6 @@ SMSmileys brings smileys to the default iPhone Messages app. It automatically re
 
 Built with [THEOS](http://iphonedevwiki.net/index.php/Theos).
 
-Tweak.m exists just so I had syntax highlighting in Xcode when I wrote it, maketweak.sh just backs up Tweak.xm, copies Tweak.m into Tweak.xm and builds it.
+Tested only on iOS 8.1.x
+
+
