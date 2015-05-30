@@ -1,9 +1,9 @@
 Package: com.samstone.smsmileys
 Name: SMSmileys
 Depends: mobilesubstrate
-Version: 1.0
+Version: 2.0.0
 Architecture: iphoneos-arm
-Description: Brings smileys to the default Messages app!
-Maintainer: Sam Stone
-Author: Sam Stone
+Description: Displays ASCII Smileys as their emoji equivalent default Messages app!
+Maintainer: Sam Stone <stonesam92@gmail.com>
+Author: Sam Stone <stonesam92@gmail.com>
 Section: Tweaks
